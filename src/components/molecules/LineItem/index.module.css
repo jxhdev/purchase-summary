@@ -1,0 +1,66 @@
+.lineitem {
+  margin-bottom: 1rem;
+  text-align: left;
+  display: block;
+  padding: 0;
+}
+
+.lineitem__price span.decrement {
+  color: red;
+}
+
+.lineitem__price {
+  font-size: 1.6rem;
+  display: inline;
+  padding: 0.3rem;
+  margin: 0rem;
+}
+
+.lineitem__price span {
+  float: right;
+  color: black;
+}
+
+.lineitem__price_large {
+  font-size: 2.4rem;
+  display: inline;
+  padding: 0.3rem;
+  margin: 0rem;
+  text-decoration: strong;
+}
+
+.lineitem__price span {
+  float: right;
+  color: black;
+}
+
+.lineitem__price_large span {
+  float: right;
+  color: black;
+}
+.lineitem__description {
+  display: inline-block;
+}
+.lineitem__title {
+  font-size: 1.6rem;
+  font-weight: normal;
+  display: inline;
+  padding: 0.3rem;
+  margin: 0rem;
+}
+
+.lineitem__title_large {
+  font-size: 2.4rem;
+  font-weight: bold;
+  display: inline;
+  padding: 0.3rem;
+  margin: 0rem;
+}
+
+.lineitem__altTitle {
+  display: block;
+  font-size: 1.6rem;
+  padding: 0.3rem;
+  width: 100%;
+  margin: 0rem;
+}

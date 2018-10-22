@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
-import { ItemDetails, ApplyPromoCode } from './atoms';
-import { PurchaseSummary } from './organisms';
+import { Provider } from 'react-redux';
+import { configureStore } from '../store';
+
+import { PurchaseSummaryContainer } from '../containers';
 import './App.css';
+
+const store = configureStore();
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <PurchaseSummary />
-      </div>
+      <Provider store={store}>
+        <div className="App">
+          <PurchaseSummaryContainer />
+        </div>
+      </Provider>
     );
   }
 }

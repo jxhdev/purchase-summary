@@ -1,0 +1,34 @@
+.wrapper {
+  margin-bottom: 1rem;
+  text-align: left;
+  display: block;
+}
+
+.price {
+  font-size: 1.6rem;
+  display: inline;
+  padding: 0.3rem;
+  margin: 0rem;
+  text-decoration: underline;
+}
+.price span {
+  float: right;
+  text-decoration: strong;
+  color: black;
+}
+
+.price span.decrement {
+  color: red;
+}
+
+.title {
+  font-size: 1.6rem;
+  display: inline;
+  margin: 0.3rem;
+  text-decoration: underline;
+}
+
+.title:focus {
+  outline: lightgray solid 0.5px;
+  padding: 0;
+}

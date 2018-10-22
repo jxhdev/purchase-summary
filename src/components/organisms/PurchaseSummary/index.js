@@ -1,29 +1,22 @@
 import React, { Component } from 'react';
-import { PriceDetails } from '../../molecules';
-import styled from 'styled-components';
+import { PriceDetails, ToggleDropdown, ItemDetails } from '../../molecules';
+import { ApplyPromoCodeContainer } from '../../../containers';
+import styles from './index.module.css';
 
-const StyledPurchaseSummary = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 18rem;
-  border: 1px solid lightgray;
-  box-shadow: 1px 1px 2px 0px lightgray;
-  border-radius: 0.5rem;
-
-  hr {
-    border: 0;
-    height: 0;
-    box-shadow: 0 0 0.4px 0.2px black;
-  }
-`;
 class PurchaseSummary extends Component {
   state = {};
   render() {
-    const details = { subtotal: 500, savings: -10, fees: 49, total: 539 };
+    const { cart } = this.props.purchaseSummary;
     return (
-      <StyledPurchaseSummary>
-        <PriceDetails details={details} />
-      </StyledPurchaseSummary>
+      <div className={styles.wrapper}>
+        <PriceDetails details={this.props.purchaseSummary} />
+        <ToggleDropdown title="See item details">
+          <ItemDetails cart={cart} />
+        </ToggleDropdown>
+        <ToggleDropdown title="Apply promo code">
+          <ApplyPromoCodeContainer />
+        </ToggleDropdown>
+      </div>
     );
   }
 }

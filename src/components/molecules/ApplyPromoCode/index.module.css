@@ -1,0 +1,30 @@
+.wrapper {
+  display: inline;
+}
+
+.title {
+  padding: 0;
+  margin: 1rem 0 0;
+  color: gray;
+}
+.input {
+  height: 3rem;
+  width: 60%;
+  font-size: 2rem;
+  border-radius: 0.3rem;
+  border: solid 0.1rem lightgray;
+}
+
+.input:focus {
+  outline-color: lightgray;
+}
+
+.button {
+  margin: 0 0.1rem 0 1rem;
+  padding: 0.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  height: 100%;
+  border: 0.2rem solid black;
+  border-radius: 1rem;
+}

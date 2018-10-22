@@ -1,0 +1,32 @@
+.toggleDropdown {
+  margin: 0 0.5rem 0 0.5rem;
+  padding: 0 1rem;
+}
+
+.toggleDropdown__container {
+  margin-bottom: 1rem;
+  text-align: left;
+  display: block;
+  padding: 0;
+}
+
+.toggleDropdown__title {
+  font-size: 1.6rem;
+  font-weight: 'normal';
+  text-decoration: underline;
+  display: inline;
+  margin: 0.3rem;
+  margin: 0rem;
+}
+
+.toggleDropdown__title:focus {
+  outline: lightgray solid 0.5px;
+  padding: 0;
+}
+
+.toggleDropdown__icon {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 2.4rem;
+  font-weight: 100;
+}

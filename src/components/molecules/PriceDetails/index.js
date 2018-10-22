@@ -1,33 +1,30 @@
 import React, { Component } from 'react';
-import { LineItem } from '../../atoms';
-import { LineItemWithTooltip } from '../../molecules';
-import styled from 'styled-components';
-
-const StyledPriceDetails = styled.div`
-  width: 100%;
-  margin: 1rem;
-`;
+import { LineItem, LineItemWithTooltip } from '../../molecules';
+import s from './index.module.css';
 
 const pickupText = `Picking up your order in the store helps cut costs, and we pass the
         savings on to you.`;
-
 class PriceDetails extends Component {
   state = {};
   render() {
-    const { subtotal, savings, fees, total } = this.props.details;
+    const { subtotal, savings, fees, location } = this.props.details;
     return (
-      <StyledPriceDetails>
+      <div className={s.priceDetails}>
         <LineItem title="Subtotal" price={subtotal} />
         <LineItemWithTooltip
           title="Pickup Savings"
-          content={pickupText}
+          tooltipContent={pickupText}
           price={savings}
           decrement
         />
-        <LineItem title="Est. taxes & fees" price={fees} />
+        <LineItem
+          title="Est. taxes & fees"
+          altTitle={`(Based on ${location})`}
+          price={fees}
+        />
         <hr />
-        <LineItem large title="Est. total" price={total} />
-      </StyledPriceDetails>
+        <LineItem large title="Est. total" price={subtotal + fees + savings} />
+      </div>
     );
   }
 }

@@ -1,1 +1,1 @@
-export { default as LineItem } from './LineItem';
+export { default as Tooltip } from './Tooltip';

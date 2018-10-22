@@ -1,59 +1,71 @@
 import React, { Component } from 'react';
-import styled, { css } from 'styled-components';
-
-const Wrapper = styled.div`
-  text-align: left;
-  display: block;
-  padding: 0;
-`;
-
-const P = styled.p`
-  font-size: ${props => (props.large ? '2rem' : '1.4rem')}
-  display: inline;
-  padding: 0.3rem;
-  width: 100%;
-  margin: 0rem;
-  text-decoration: underline;
-  span {
-    float: right;
-    text-decoration: strong;
-    color: ${props => (props.decrement ? 'red' : 'black')};
-  }
-`;
+import { Tooltip } from '../../atoms';
+import s from './index.module.css';
 
 class LineItemWithTooltip extends Component {
-  state = { hovered: false };
+  state = { tooltipVisible: false };
 
-  onMouseEnterHandler() {
-    this.setState({ hovered: true });
-    console.log('wtf');
+  onClickHandler() {
+    if (!this.state.tooltipVisible) {
+      document.addEventListener(
+        'click',
+        e => this.outsideClickHandler(e),
+        false
+      );
+    } else {
+      document.removeEventListener(
+        'click',
+        e => this.outsideClickHandler(e),
+        false
+      );
+    }
+    this.setState(prevState => ({ tooltipVisible: !prevState.tooltipVisible }));
   }
-  onMouseLeaveHandler() {
-    this.setState({ hovered: false });
+  outsideClickHandler(e) {
+    if (this.node && this.node.contains(e.target)) {
+      return;
+    }
+    this.setState({ tooltipVisible: false });
   }
 
   render() {
-    const { title, price, decrement } = this.props;
+    const { title, price, decrement, tooltipContent } = this.props;
+
     return (
-      <Wrapper>
-        <P
-          decrement={decrement}
-          onMouseEnter={() => this.onMouseEnterHandler()}
-          onMouseLeave={() => this.onMouseLeaveHandler()}
+      <div
+        className={s.wrapper}
+        ref={node => {
+          this.node = node;
+        }}
+      >
+        <p
+          id="test_click"
+          className={s.title}
+          tabIndex="0"
+          onClick={() => this.onClickHandler()}
         >
           {title}
-          <span>
-            {decrement ? (
+        </p>
+        {decrement ? (
+          <p className={s.price}>
+            <span className={s.decrement}>
               <b>
                 -$
-                {-1 * price}
+                {(price * -1).toFixed(2)}
               </b>
-            ) : (
-              <b>${price}</b>
-            )}
-          </span>
-        </P>
-      </Wrapper>
+            </span>
+          </p>
+        ) : (
+          <p className={s.price}>
+            <span>
+              <b>${price.toFixed(2)}</b>
+            </span>
+          </p>
+        )}
+        {this.state.tooltipVisible && (
+          <Tooltip tooltipContent={tooltipContent} />
+        )}
+      </div>
     );
   }
 }
