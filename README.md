@@ -1,4 +1,4 @@
-# CASPEX Purchase Summary
+# Purchase Summary
 
 ## Setup Instructions
 
