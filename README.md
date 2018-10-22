@@ -9,4 +9,4 @@ yarn add
 yarn start
 ```
 
-The app will be running on https://localhost:3000
+The app will be running on http://localhost:3000
